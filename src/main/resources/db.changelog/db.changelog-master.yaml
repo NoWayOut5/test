@@ -8,11 +8,11 @@ databaseChangeLog:
        author:  MVeselkov
        changes:
          -  createTable:
-              tableName:  сalls
+              tableName:  сall
               columns:
                 -  column:
                      name:  id
-                     type:  int
+                     type:  NUMERIC(19, 0)
                      autoIncrement:  true
                      constraints:
                        primaryKey:  true
@@ -25,19 +25,19 @@ databaseChangeLog:
                      type:  varchar(255)
                 -  column:
                      name:  client_id
-                     type:  int
+                     type:  NUMERIC(19, 0)
                 -  column:
                      name:  record_time
                      type:  timestamp
                 -  column:
                      name:  user_id
-                     type:  timestamp
+                     type:  NUMERIC(19, 0)
          -  createTable:
-              tableName:  сlients
+              tableName:  сlient
               columns:
                 -  column:
                      name:  id
-                     type:  int
+                     type:  NUMERIC(19, 0)
                      autoIncrement:  true
                      constraints:
                        primaryKey:  true
