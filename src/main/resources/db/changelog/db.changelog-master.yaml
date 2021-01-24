@@ -5,10 +5,10 @@ databaseChangeLog:
        author:  MVeselkov
        changes:
          -  createTable:
-              tableName:  сall
+              tableName:  сalllist
               columns:
                 -  column:
-                     name:  callid
+                     name:  сalllistid
                      type:  NUMERIC(19, 0)
                      autoIncrement:  true
                      constraints:
@@ -21,7 +21,7 @@ databaseChangeLog:
                      name:  name
                      type:  varchar(255)
                 -  column:
-                     name:  clientid
+                     name:  clientlistid
                      type:  NUMERIC(19, 0)
                 -  column:
                      name:  recordtime
@@ -30,10 +30,10 @@ databaseChangeLog:
                      name:  userid
                      type:  NUMERIC(19, 0)
          -  createTable:
-              tableName:  сlient
+              tableName:  сlientlist
               columns:
                 -  column:
-                     name:  clientid
+                     name:  clientlistid
                      type:  NUMERIC(19, 0)
                      autoIncrement:  true
                      constraints:
