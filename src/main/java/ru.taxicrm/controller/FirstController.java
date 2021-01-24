@@ -8,6 +8,6 @@ public class FirstController {
 
     @RequestMapping("/")
     String getHome() {
-        return "Spring Boot Test!";
+        return "Test!";
     }
 }

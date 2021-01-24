@@ -27,6 +27,6 @@ public class FirstControllerTest {
     public void getHomeTest() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Spring Boot Test!")));
+                .andExpect(content().string(equalTo("Test!")));
     }
 }
