@@ -1,44 +1,44 @@
 databaseChangeLog:
-  -  preConditions:
-  -  changeSet:
-       id:  1
-       author:  MVeselkov
-       changes:
-         -  createTable:
-              tableName:  сall
-              columns:
-                -  column:
-                     name:  сallid
-                     type:  NUMERIC(19, 0)
-                     autoIncrement:  true
-                     constraints:
-                       primaryKey:  true
-                       nullable:  false
-                -  column:
-                     name:  phone
-                     type:  varchar(10)
-                -  column:
-                     name:  name
-                     type:  varchar(255)
-                -  column:
-                     name:  clientid
-                     type:  NUMERIC(19, 0)
-                -  column:
-                     name:  recordtime
-                     type:  timestamp
-                -  column:
-                     name:  userid
-                     type:  NUMERIC(19, 0)
-         -  createTable:
-              tableName:  сlient
-              columns:
-                -  column:
-                     name:  clientid
-                     type:  NUMERIC(19, 0)
-                     autoIncrement:  true
-                     constraints:
-                       primaryKey:  true
-                       nullable:  false
-                -  column:
-                     name:  name
-                     type:  varchar(255)
+  - preConditions:
+  - changeSet:
+      id:  1
+      author:  MVeselkov
+      changes:
+        - createTable:
+            tableName:  сall
+            columns:
+              - column:
+                  name:  сallid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  phone
+                  type:  varchar(10)
+              - column:
+                  name:  name
+                  type:  varchar(255)
+              - column:
+                  name:  clientid
+                  type:  bigint
+              - column:
+                  name:  recordtime
+                  type:  timestamp
+              - column:
+                  name:  userid
+                  type:  bigint
+        - createTable:
+            tableName:  сlient
+            columns:
+              - column:
+                  name:  clientid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  name
+                  type:  varchar(255)
