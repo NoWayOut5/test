@@ -1,5 +1,7 @@
 package ru.taxicrm.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -16,6 +18,7 @@ public class Call {
 
     private Long clientid;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime recordtime;
 
     private Long userid;
