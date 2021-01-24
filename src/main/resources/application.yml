@@ -1,3 +1,15 @@
 # Spring Boot configuration
 server:
   port: 9080
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/taxicrmcommon
+    username: postgres
+    password: postgres
+    sql-script-encoding: utf-8
+    tomcat:
+      test-on-borrow: true
+      test-while-idle: true
+      validation-query: select 1
