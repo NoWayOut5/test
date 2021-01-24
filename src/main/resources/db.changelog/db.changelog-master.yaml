@@ -1,0 +1,47 @@
+databaseChangeLog:
+  -  preConditions:
+  -  runningAs:
+       username:  taxicrmcommon
+
+  -  changeSet:
+       id:  1
+       author:  MVeselkov
+       changes:
+         -  createTable:
+              tableName:  Calls
+              columns:
+                -  column:
+                     name:  id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  phone
+                     type:  varchar(10)
+                -  column:
+                     name:  name
+                     type:  varchar(255)
+                -  column:
+                     name:  client_id
+                     type:  int
+                -  column:
+                     name:  record_time
+                     type:  timestamp
+                -  column:
+                     name:  user_id
+                     type:  timestamp
+         -  createTable:
+              tableName:  Clients
+              columns:
+                -  column:
+                     name:  id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false
+                -  column:
+                     name:  name
+                     type:  varchar(255)
