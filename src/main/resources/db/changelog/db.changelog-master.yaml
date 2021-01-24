@@ -1,44 +1,44 @@
 databaseChangeLog:
   - preConditions:
   - changeSet:
-      id:  1
-      author:  MVeselkov
+      id: 1
+      author: MVeselkov
       changes:
         - createTable:
-            tableName:  сall
+            tableName: сall
             columns:
               - column:
-                  name:  сallid
-                  type:  bigint
-                  autoIncrement:  true
+                  name: сallid
+                  type: bigint
+                  autoIncrement: true
                   constraints:
-                    primaryKey:  true
-                    nullable:  false
+                    primaryKey: true
+                    nullable: false
               - column:
-                  name:  phone
-                  type:  varchar(10)
+                  name: phone
+                  type: varchar(10)
               - column:
-                  name:  name
-                  type:  varchar(255)
+                  name: name
+                  type: varchar(255)
               - column:
-                  name:  clientid
-                  type:  bigint
+                  name: clientid
+                  type: bigint
               - column:
-                  name:  recordtime
-                  type:  timestamp
+                  name: recordtime
+                  type: timestamp
               - column:
-                  name:  userid
-                  type:  bigint
+                  name: userid
+                  type: bigint
         - createTable:
-            tableName:  сlient
+            tableName: сlient
             columns:
               - column:
-                  name:  clientid
-                  type:  bigint
-                  autoIncrement:  true
+                  name: clientid
+                  type: bigint
+                  autoIncrement: true
                   constraints:
-                    primaryKey:  true
-                    nullable:  false
+                    primaryKey: true
+                    nullable: false
               - column:
-                  name:  name
-                  type:  varchar(255)
+                  name: name
+                  type: varchar(255)
