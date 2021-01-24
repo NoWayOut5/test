@@ -1,9 +1,6 @@
 package ru.taxicrm.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,24 +8,24 @@ public class Call {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long сallId;
+    private Long callid;
 
     private String phone;
 
     private String name;
 
-    private Long clientId;
+    private Long clientid;
 
-    private LocalDateTime recordTime;
+    private LocalDateTime recordtime;
 
-    private Long userId;
+    private Long userid;
 
-    public Long getСallId() {
-        return сallId;
+    public Long getCallid() {
+        return callid;
     }
 
-    public void setСallId(Long сallId) {
-        this.сallId = сallId;
+    public void setCallid(Long callid) {
+        this.callid = callid;
     }
 
     public String getPhone() {
@@ -47,27 +44,27 @@ public class Call {
         this.name = name;
     }
 
-    public Long getClientId() {
-        return clientId;
+    public Long getClientid() {
+        return clientid;
     }
 
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
+    public void setClientid(Long clientid) {
+        this.clientid = clientid;
     }
 
-    public LocalDateTime getRecordTime() {
-        return recordTime;
+    public LocalDateTime getRecordtime() {
+        return recordtime;
     }
 
-    public void setRecordTime(LocalDateTime recordTime) {
-        this.recordTime = recordTime;
+    public void setRecordtime(LocalDateTime recordtime) {
+        this.recordtime = recordtime;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserid(Long userid) {
+        this.userid = userid;
     }
 }

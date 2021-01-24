@@ -7,17 +7,16 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "clientid")
-    private Long clientId;
+    private Long clientid;
 
     private String name;
 
-    public Long getClientId() {
-        return clientId;
+    public Long getClientid() {
+        return clientid;
     }
 
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
+    public void setClientid(Long clientid) {
+        this.clientid = clientid;
     }
 
     public String getName() {
