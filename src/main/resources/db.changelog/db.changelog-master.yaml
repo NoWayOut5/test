@@ -8,7 +8,7 @@ databaseChangeLog:
        author:  MVeselkov
        changes:
          -  createTable:
-              tableName:  Calls
+              tableName:  сalls
               columns:
                 -  column:
                      name:  id
@@ -33,7 +33,7 @@ databaseChangeLog:
                      name:  user_id
                      type:  timestamp
          -  createTable:
-              tableName:  Clients
+              tableName:  сlients
               columns:
                 -  column:
                      name:  id
