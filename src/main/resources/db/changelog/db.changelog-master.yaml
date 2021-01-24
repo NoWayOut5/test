@@ -8,7 +8,7 @@ databaseChangeLog:
               tableName:  сall
               columns:
                 -  column:
-                     name:  id
+                     name:  callid
                      type:  NUMERIC(19, 0)
                      autoIncrement:  true
                      constraints:
@@ -21,19 +21,19 @@ databaseChangeLog:
                      name:  name
                      type:  varchar(255)
                 -  column:
-                     name:  client_id
+                     name:  clientid
                      type:  NUMERIC(19, 0)
                 -  column:
-                     name:  record_time
+                     name:  recordtime
                      type:  timestamp
                 -  column:
-                     name:  user_id
+                     name:  userid
                      type:  NUMERIC(19, 0)
          -  createTable:
               tableName:  сlient
               columns:
                 -  column:
-                     name:  id
+                     name:  clientid
                      type:  NUMERIC(19, 0)
                      autoIncrement:  true
                      constraints:
