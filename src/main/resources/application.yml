@@ -1,13 +1,13 @@
 # Spring Boot configuration
 server:
-  port: 9080
+  port: ${PORT:9080}
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/taxicrmcommon
-    username: postgres
-    password: postgres
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/taxicrmcommon}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     sql-script-encoding: utf-8
     tomcat:
       test-on-borrow: true

@@ -7,7 +7,7 @@
     <groupId>ru.taxicrm</groupId>
     <artifactId>TaxiCRM</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
