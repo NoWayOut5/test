@@ -1,19 +1,21 @@
 package ru.taxicrm.service;
 
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import ru.taxicrm.domain.Call;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface CallService {
 
     void save(Call call);
 
-    Call findById(Long id);
+    Optional<Call> findById(Long id);
 
-    void delete(Call call);
+    Page<Call> findAll(Integer page);
 
-    List<Call> findAll(Pageable page);
+    Call update(Long id, Call call);
+
+    void delete(Long id);
 }

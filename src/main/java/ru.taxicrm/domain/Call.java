@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 public class Call {
@@ -69,5 +70,35 @@ public class Call {
 
     public void setUserid(Long userid) {
         this.userid = userid;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Call call = (Call) o;
+        return Objects.equals(callid, call.callid) &&
+                Objects.equals(phone, call.phone) &&
+                Objects.equals(name, call.name) &&
+                Objects.equals(clientid, call.clientid) &&
+                Objects.equals(recordtime, call.recordtime) &&
+                Objects.equals(userid, call.userid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(callid, phone, name, clientid, recordtime, userid);
+    }
+
+    @Override
+    public String toString() {
+        return "Call{" +
+                "callid=" + callid +
+                ", phone='" + phone + '\'' +
+                ", name='" + name + '\'' +
+                ", clientid=" + clientid +
+                ", recordtime=" + recordtime +
+                ", userid=" + userid +
+                '}';
     }
 }

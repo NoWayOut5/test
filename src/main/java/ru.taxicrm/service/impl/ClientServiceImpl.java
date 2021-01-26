@@ -1,14 +1,14 @@
 package ru.taxicrm.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.taxicrm.domain.Client;
 import ru.taxicrm.repository.ClientRepository;
 import ru.taxicrm.service.ClientService;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,17 +27,22 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findById(Long id) {
+    public Optional<Client> findById(Long id) {
+        return clientRepository.findById(id);
+    }
+
+    @Override
+    public Page<Client> findAll(Integer page) {
         return null;
     }
 
     @Override
-    public void delete(Client client) {
-
+    public Client update(Long id, Client client) {
+        return null;
     }
 
     @Override
-    public List<Client> findAll(Pageable page) {
-        return null;
+    public void delete(Long id) {
+
     }
 }

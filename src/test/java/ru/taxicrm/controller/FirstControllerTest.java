@@ -16,16 +16,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class FirstControllerTest {
 
-    private MockMvc mvc;
-
     @Autowired
-    public void setMvc(MockMvc mvc) {
-        this.mvc = mvc;
-    }
+    private MockMvc mockMvc;
 
     @Test
     public void getHomeTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("Test!")));
     }
