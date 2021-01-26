@@ -1,6 +1,7 @@
 package ru.taxicrm.domain;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Client {
@@ -25,5 +26,27 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(clientid, client.clientid) &&
+                Objects.equals(name, client.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientid, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "clientid=" + clientid +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

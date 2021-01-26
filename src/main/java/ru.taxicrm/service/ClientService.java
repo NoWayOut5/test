@@ -1,19 +1,21 @@
 package ru.taxicrm.service;
 
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import ru.taxicrm.domain.Client;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface ClientService {
 
     void save(Client client);
 
-    Client findById(Long id);
+    Optional<Client> findById(Long id);
 
-    void delete(Client client);
+    Page<Client> findAll(Integer page);
 
-    List<Client> findAll(Pageable page);
+    Client update(Long id, Client client);
+
+    void delete(Long id);
 }

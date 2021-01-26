@@ -1,14 +1,14 @@
 package ru.taxicrm.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.taxicrm.domain.Call;
 import ru.taxicrm.repository.CallRepository;
 import ru.taxicrm.service.CallService;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,18 +27,22 @@ public class CallServiceImpl implements CallService {
     }
 
     @Override
-    public Call findById(Long id) {
+    public Optional<Call> findById(Long id) {
+        return callRepository.findById(id);
+    }
+
+    @Override
+    public Page<Call> findAll(Integer page) {
         return null;
     }
 
     @Override
-    public void delete(Call call) {
-        callRepository.delete(call);
+    public Call update(Long id, Call call) {
+        return null;
     }
 
     @Override
-    public List<Call> findAll(Pageable page) {
-        callRepository.findAll(page);
-        return null;
+    public void delete(Long id) {
+
     }
 }
