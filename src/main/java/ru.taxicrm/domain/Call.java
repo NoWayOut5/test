@@ -1,8 +1,12 @@
 package ru.taxicrm.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -11,6 +15,7 @@ public class Call {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(hidden = true)
     private Long callid;
 
     private String phone;
@@ -20,6 +25,7 @@ public class Call {
     private Long clientid;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @ApiModelProperty(example = "2020-31-01 23:59:59")
     private LocalDateTime recordtime;
 
     private Long userid;

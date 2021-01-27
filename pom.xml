@@ -14,12 +14,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <liquibase.version>3.8.5</liquibase.version>
         <postgresql.version>42.2.9</postgresql.version>
+        <swagger.version>3.0.0</swagger.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
+        <version>2.3.7.RELEASE</version>
     </parent>
 
     <dependencies>
@@ -49,6 +50,12 @@
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
             <version>${liquibase.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
     </dependencies>
 
