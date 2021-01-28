@@ -8,6 +8,7 @@ import ru.taxicrm.domain.Call;
 import ru.taxicrm.repository.CallRepository;
 import ru.taxicrm.service.CallService;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -23,6 +24,9 @@ public class CallServiceImpl implements CallService {
 
     @Override
     public void save(Call call) {
+        if (call.getRecordtime() == null) {
+            call.setRecordtime(LocalDateTime.now().withNano(0));
+        }
         callRepository.save(call);
     }
 
