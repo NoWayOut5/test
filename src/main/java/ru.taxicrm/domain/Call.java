@@ -1,5 +1,6 @@
 package ru.taxicrm.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Entity;
@@ -64,6 +65,7 @@ public class Call {
         return recordtime;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public void setRecordtime(LocalDateTime recordtime) {
         this.recordtime = recordtime;
     }

@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public interface ClientService {
 
-    void save(Client client);
+    Client save(Client client);
 
     Optional<Client> findById(Long id);
 

@@ -23,11 +23,11 @@ public class CallServiceImpl implements CallService {
     }
 
     @Override
-    public void save(Call call) {
+    public Call save(Call call) {
         if (call.getRecordtime() == null) {
             call.setRecordtime(LocalDateTime.now().withNano(0));
         }
-        callRepository.save(call);
+        return callRepository.save(call);
     }
 
     @Override

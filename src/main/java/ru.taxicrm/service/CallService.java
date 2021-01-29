@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public interface CallService {
 
-    void save(Call call);
+    Call save(Call call);
 
     Optional<Call> findById(Long id);
 

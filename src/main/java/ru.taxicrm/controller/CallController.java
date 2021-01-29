@@ -18,7 +18,8 @@ public class CallController {
     }
 
     @PostMapping(value = "save")
-    public void save(@RequestBody Call call) {
+    public Call save(@RequestBody Call call) {
         callService.save(call);
+        return call;
     }
 }
