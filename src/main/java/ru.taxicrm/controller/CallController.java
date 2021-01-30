@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.taxicrm.domain.Call;
 import ru.taxicrm.service.CallService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("call")
 @CrossOrigin
@@ -21,5 +23,10 @@ public class CallController {
     public Call save(@RequestBody Call call) {
         callService.save(call);
         return call;
+    }
+
+    @GetMapping(value = "findall")
+    public List<Call> findAll() {
+        return callService.findAll();
     }
 }

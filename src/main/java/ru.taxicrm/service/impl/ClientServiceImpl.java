@@ -8,6 +8,7 @@ import ru.taxicrm.domain.Client;
 import ru.taxicrm.repository.ClientRepository;
 import ru.taxicrm.service.ClientService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,7 +33,12 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Page<Client> findAll(Integer page) {
+    public List<Client> findAll() {
+        return null;
+    }
+
+    @Override
+    public Page<Client> findAllPage(Integer page) {
         return null;
     }
 

@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import ru.taxicrm.domain.Call;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,7 +14,9 @@ public interface CallService {
 
     Optional<Call> findById(Long id);
 
-    Page<Call> findAll(Integer page);
+    List<Call> findAll();
+
+    Page<Call> findAllPage(Integer page);
 
     Call update(Long id, Call call);
 

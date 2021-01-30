@@ -9,6 +9,7 @@ import ru.taxicrm.repository.CallRepository;
 import ru.taxicrm.service.CallService;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,7 +37,12 @@ public class CallServiceImpl implements CallService {
     }
 
     @Override
-    public Page<Call> findAll(Integer page) {
+    public List<Call> findAll() {
+        return callRepository.findAll();
+    }
+
+    @Override
+    public Page<Call> findAllPage(Integer page) {
         return null;
     }
 
