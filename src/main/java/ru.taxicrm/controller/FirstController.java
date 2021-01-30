@@ -11,7 +11,7 @@ import java.util.Map;
 @CrossOrigin
 public class FirstController {
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/getJson")
     public Map getHome() {
         Map<String, String> map = new HashMap<>();
         map.put("test1", "v1");
