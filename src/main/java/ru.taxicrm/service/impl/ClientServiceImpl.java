@@ -34,7 +34,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public List<Client> findAll() {
-        return null;
+        return clientRepository.findAll();
     }
 
     @Override
