@@ -2,7 +2,6 @@ package ru.taxicrm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.taxicrm.domain.Call;
 import ru.taxicrm.domain.Client;
 import ru.taxicrm.service.ClientService;
 
