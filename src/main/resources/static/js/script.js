@@ -1,7 +1,7 @@
 "use sctrict";
 
 let urlHost = window.location.origin;
-if (window.location.port.length == 0) {
+if (window.location.hostname == '') {
     urlHost = 'http://localhost:9080';
 }
 
