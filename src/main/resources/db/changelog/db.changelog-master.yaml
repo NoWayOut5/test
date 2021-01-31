@@ -1,5 +1,6 @@
 databaseChangeLog:
   - preConditions:
+
   - changeSet:
       id:  1
       author:  MVeselkov
@@ -42,3 +43,33 @@ databaseChangeLog:
               - column:
                   name:  name
                   type:  varchar(255)
+
+  - changeSet:
+      id:  2
+      author: kborodulin
+      changes:
+        - createTable:
+            tableName:  users
+            columns:
+              - column:
+                  name:  userid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  username
+                  type:  varchar(50)
+                  constraints:
+                    unique:  true
+                    nullable:  false
+              - column:
+                  name:  password
+                  type:  varchar(100)
+                  constraints:
+                    nullable:  false
+              - column:
+                  name:  enabled
+                  type:  int
+                  defaultValue: 1
