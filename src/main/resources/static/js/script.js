@@ -2,7 +2,7 @@
 
 let urlHost = window.location.origin;
 if (window.location.port.length == 0) {
-    urlHost = 'http://localhost:9080/';
+    urlHost = 'http://localhost:9080';
 }
 
 // Сохраним клиента
@@ -31,6 +31,31 @@ if (btnsaveClient) {
     });
 }
 
+// Список клиентов
+const getResource = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) {
+        throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+    }
+    return await res.json();
+};
+
+const clientList = document.getElementById("clientList");
+if (clientList) {
+    getResource(`${urlHost}/client/findall`)
+        .then(function (data) {
+            for (var i = 0; i < data.length; i++) {
+                if (clientList != null && data[i].name != null) {
+                    let newOption = new Option(data[i].name, data[i].clientid);
+                    clientList.append(newOption);
+                }
+            }
+            if (clientList.length != 0) {
+                clientList[0].selected = true;
+            }
+        });
+}
+
 // Сохраним звонок
 const btnsaveCall = document.getElementById('saveCall');
 if (btnsaveCall) {
@@ -39,7 +64,7 @@ if (btnsaveCall) {
         const callData = {
             name: document.getElementById('caller').value,
             phone: document.getElementById('phone').value,
-            clientid: '1',
+            clientid: document.getElementById('clientList').value,
             userid: '1',
         };
 
@@ -59,23 +84,3 @@ if (btnsaveCall) {
         }
     });
 }
-
-// Вывести всех клиентов
-const getResource = async (url) => {
-    const res = await fetch(url);
-    if (!res.ok) {
-        throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-    }
-    return await res.json();
-};
-
-const clientList = document.getElementById("clientList");
-getResource(`${urlHost}/client/findall`)
-    .then(function (data) {
-        for (var i = 0; i < data.length; i++) {
-            if (clientList != null && data[i].name != null) {
-                let newOption = new Option(data[i].name, data[i].name);
-                clientList.append(newOption);
-            }
-        }
-    });
