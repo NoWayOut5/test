@@ -19,7 +19,7 @@ public class FirstControllerTest {
 
     @Test
     public void getHomeTest() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get("/getJson").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 }
