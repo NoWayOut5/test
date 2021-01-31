@@ -84,11 +84,3 @@ if (btnsaveCall) {
         }
     });
 }
-
-// Выход
-const btnsaveExit = document.getElementById('exit');
-if (btnsaveExit) {
-    btnsaveExit.addEventListener('click', () => {
-        document.location.href = `${urlHost}/logout`;
-    });
-}
