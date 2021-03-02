@@ -1,0 +1,221 @@
+databaseChangeLog:
+  - preConditions:
+  - runningAs:
+      username:  liquibase
+
+  - changeSet:
+      id:  1
+      author:  kv
+      changes:
+        - createTable:
+            tableName:  contractor
+            columns:
+              - column:
+                  name:  contractorid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  name
+                  type:  varchar(255)
+
+  - changeSet:
+      id:  2
+      author:  kv
+      changes:
+        - createTable:
+            tableName:  city
+            columns:
+              - column:
+                  name:  cityid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  name
+                  type:  varchar(255)
+
+  - changeSet:
+      id:  3
+      author:  kv
+      changes:
+        - createTable:
+            tableName:  users
+            columns:
+              - column:
+                  name:  userid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  login
+                  type:  varchar(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name:  password
+                  type:  varchar(255)
+              - column:
+                  name:  name
+                  type:  varchar(255)
+              - column:
+                  name:  enabled
+                  type:  integer
+                  defaultValue:  1
+              - column:
+                  name:  contractorid
+                  type:  bigint
+                  constraints:
+                    foreignKeyName: fk_contractor_contractorid
+                    references: contractor(contractorid)
+              - column:
+                  name:  createdate
+                  type:  timestamp
+
+  - changeSet:
+      id:  4
+      author:  kv
+      changes:
+        - createTable:
+            tableName:  roles
+            columns:
+              - column:
+                  name:  roleid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  sysname
+                  type:  varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name:  name
+                  type:  varchar(255)
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            tableName:  roles
+            columnNames:  sysname, name
+
+  - changeSet:
+      id:  5
+      author:  kv
+      changes:
+        - createTable:
+            tableName:  userroles
+            columns:
+              - column:
+                  name:  userroleid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  userid
+                  type:  bigint
+                  constraints:
+                    foreignKeyName: fk_users_userid
+                    references: users(userid)
+                    nullable: false
+              - column:
+                  name:  roleid
+                  type:  bigint
+                  constraints:
+                    foreignKeyName: fk_roles_roleid
+                    references: roles(roleid)
+                    nullable: false
+        - addUniqueConstraint:
+            tableName:  userroles
+            columnNames:  userid, roleid
+
+  - changeSet:
+      id:  6
+      author:  kv
+      changes:
+        - createTable:
+            tableName:  shedule
+            columns:
+              - column:
+                  name:  sheduleid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  contractorid
+                  type:  bigint
+                  constraints:
+                    foreignKeyName: fk_contractor_contractorid
+                    references: contractor(contractorid)
+              - column:
+                  name:  cityid
+                  type:  bigint
+                  constraints:
+                    foreignKeyName: fk_city_cityid
+                    references: city(cityid)
+              - column:
+                  name:  clname
+                  type:  varchar(250)
+              - column:
+                  name:  phone
+                  type:  varchar(50)
+              - column:
+                  name:  startingpoint
+                  type:  varchar(250)
+              - column:
+                  name:  transportway
+                  type:  varchar(250)
+              - column:
+                  name:  destination
+                  type:  varchar(250)
+              - column:
+                  name:  note
+                  type:  varchar(1000)
+              - column:
+                  name:  datefrom
+                  type:  timestamp
+              - column:
+                  name:  dateto
+                  type:  timestamp
+
+  - changeSet:
+      id:  7
+      author:  kv
+      changes:
+        - createTable:
+            tableName:  days
+            columns:
+              - column:
+                  name:  dayid
+                  type:  bigint
+                  autoIncrement:  true
+                  constraints:
+                    primaryKey:  true
+                    nullable:  false
+              - column:
+                  name:  name
+                  type:  varchar(20)
+              - column:
+                  name:  direction
+                  type:  varchar(5)
+              - column:
+                  name:  time
+                  type:  time
+              - column:
+                  name:  sheduleid
+                  type:  bigint
+                  constraints:
+                    foreignKeyName: fk_shedule_sheduleid
+                    references: shedule(sheduleid)
