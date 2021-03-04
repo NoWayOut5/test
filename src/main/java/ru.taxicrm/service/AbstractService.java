@@ -51,13 +51,16 @@ public abstract class AbstractService<E, R extends JpaRepository<E, Long>> {
     public E update(Long id, E entity) {
         Optional<E> obj = findById(id);
 
-        // Исключаем поля с null значениями при сериализ/десериализ
+        // Обновляем поля объекта исключая поля с пустыми значениями
         List<String> emptyFields = new ArrayList<>();
         for (Field field : entity.getClass().getDeclaredFields()) {
             field.setAccessible(true);
             try {
                 if (field.get(entity) == null) {
                     emptyFields.add(field.getName());
+                }
+                if (field.get(entity) != null && "".equals(field.get(entity).toString().trim())) {
+                    field.set(entity, null);
                 }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
