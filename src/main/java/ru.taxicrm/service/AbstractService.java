@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,8 +50,21 @@ public abstract class AbstractService<E, R extends JpaRepository<E, Long>> {
 
     public E update(Long id, E entity) {
         Optional<E> obj = findById(id);
-        String tbl = entity.getClass().getSimpleName().toLowerCase();
-        BeanUtils.copyProperties(entity, obj.get(), tbl + "id", tbl + "sid");
+
+        // Исключаем поля с null значениями при сериализ/десериализ
+        List<String> emptyFields = new ArrayList<>();
+        for (Field field : entity.getClass().getDeclaredFields()) {
+            field.setAccessible(true);
+            try {
+                if (field.get(entity) == null) {
+                    emptyFields.add(field.getName());
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        BeanUtils.copyProperties(entity, obj.get(), emptyFields.toArray(new String[0]));
+
         return repo.save(obj.get());
     }
 

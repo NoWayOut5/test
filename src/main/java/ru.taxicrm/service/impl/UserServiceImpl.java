@@ -15,12 +15,4 @@ public class UserServiceImpl extends AbstractService<User, UserRepository> {
     public UserServiceImpl(UserRepository repo) {
         super(repo);
     }
-
-    @Override
-    public User update(Long id, User entity) {
-        if (entity.getPassword() == null) {
-            entity.setPassword(findById(id).get().getPassword());
-        }
-        return super.update(id, entity);
-    }
 }
