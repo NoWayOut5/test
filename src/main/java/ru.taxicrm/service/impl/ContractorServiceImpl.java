@@ -7,6 +7,8 @@ import ru.taxicrm.domain.Contractor;
 import ru.taxicrm.repository.ContractorRepository;
 import ru.taxicrm.service.AbstractService;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class ContractorServiceImpl extends AbstractService<Contractor, ContractorRepository> {
@@ -14,5 +16,9 @@ public class ContractorServiceImpl extends AbstractService<Contractor, Contracto
     @Autowired
     public ContractorServiceImpl(ContractorRepository repo) {
         super(repo);
+    }
+
+    public List<Contractor> findByNameIgnoreCase(String name) {
+        return getRepo().findByNameIgnoreCase(name);
     }
 }

@@ -36,7 +36,7 @@ public abstract class AbstractController<E, R extends JpaRepository<E, Long>, S 
         return service.findAllPage(page);
     }
 
-    @PutMapping("{id}")
+    @PutMapping(value = "{id}")
     public E update(@PathVariable Long id, @RequestBody E entity) {
         return service.update(id, entity);
     }

@@ -7,6 +7,8 @@ import ru.taxicrm.domain.City;
 import ru.taxicrm.repository.CityRepository;
 import ru.taxicrm.service.AbstractService;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CityServiceImpl extends AbstractService<City, CityRepository> {
@@ -14,5 +16,9 @@ public class CityServiceImpl extends AbstractService<City, CityRepository> {
     @Autowired
     public CityServiceImpl(CityRepository repo) {
         super(repo);
+    }
+
+    public List<City> findByNameIgnoreCase(String name) {
+        return getRepo().findByNameIgnoreCase(name);
     }
 }
