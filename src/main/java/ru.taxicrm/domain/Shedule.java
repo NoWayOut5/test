@@ -48,6 +48,12 @@ public class Shedule {
     @ApiModelProperty(value = "Активно по", example = "2000-01-01 00:00:00")
     private LocalDateTime dateto;
 
+    @ApiModelProperty(value = "Наименование центра")
+    private String destname;
+
+    @ApiModelProperty(value = "Заказчик")
+    private String customer;
+
     @OneToMany(mappedBy = "shedule")
     @ApiModelProperty(hidden = true)
     private List<Day> days;

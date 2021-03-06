@@ -219,3 +219,17 @@ databaseChangeLog:
                   constraints:
                     foreignKeyName: fk_shedule_sheduleid
                     references: shedule(sheduleid)
+
+  - changeSet:
+      id:  8
+      author:  kv
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: destname
+                  type: varchar(255)
+              - column:
+                  name: customer
+                  type: varchar(255)
+            tableName: shedule
