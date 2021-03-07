@@ -21,6 +21,11 @@ public abstract class AbstractController<E, R extends JpaRepository<E, Long>, S 
         return service.save(entity);
     }
 
+    @PostMapping(value = "saveall")
+    public List<E> saveall(@RequestBody List<E> entity) {
+        return service.saveAll(entity);
+    }
+
     @GetMapping(value = "{id}")
     public Optional<E> findById(@PathVariable Long id) {
         return service.findById(id);

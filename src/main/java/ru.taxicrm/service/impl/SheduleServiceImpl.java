@@ -13,6 +13,7 @@ import ru.taxicrm.dto.ImportShedule;
 import ru.taxicrm.repository.SheduleRepository;
 import ru.taxicrm.service.AbstractService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -93,20 +94,21 @@ public class SheduleServiceImpl extends AbstractService<Shedule, SheduleReposito
         Shedule sheduleNew = getRepo().save(shedule);
 
         // Дни недели
+        List<Day> days = new ArrayList<>();
         // пн
         Day dayMon_in = new Day();
         dayMon_in.setTime(importShedule.getMon_in());
         dayMon_in.setDirection("in");
         dayMon_in.setName("mon");
         dayMon_in.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayMon_in);
+        days.add(dayMon_in);
 
         Day dayMon_out = new Day();
         dayMon_out.setTime(importShedule.getMon_out());
         dayMon_out.setDirection("out");
         dayMon_out.setName("mon");
         dayMon_out.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayMon_out);
+        days.add(dayMon_out);
 
         // вт
         Day dayTue_in = new Day();
@@ -114,14 +116,14 @@ public class SheduleServiceImpl extends AbstractService<Shedule, SheduleReposito
         dayTue_in.setDirection("in");
         dayTue_in.setName("tue");
         dayTue_in.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayTue_in);
+        days.add(dayTue_in);
 
         Day dayTue_out = new Day();
         dayTue_out.setTime(importShedule.getTue_out());
         dayTue_out.setDirection("out");
         dayTue_out.setName("tue");
         dayTue_out.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayTue_out);
+        days.add(dayTue_out);
 
         // ср
         Day dayWed_in = new Day();
@@ -129,14 +131,14 @@ public class SheduleServiceImpl extends AbstractService<Shedule, SheduleReposito
         dayWed_in.setDirection("in");
         dayWed_in.setName("wed");
         dayWed_in.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayWed_in);
+        days.add(dayWed_in);
 
         Day dayWed_out = new Day();
         dayWed_out.setTime(importShedule.getWed_out());
         dayWed_out.setDirection("out");
         dayWed_out.setName("wed");
         dayWed_out.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayWed_out);
+        days.add(dayWed_out);
 
         // чт
         Day dayThu_in = new Day();
@@ -144,14 +146,14 @@ public class SheduleServiceImpl extends AbstractService<Shedule, SheduleReposito
         dayThu_in.setDirection("in");
         dayThu_in.setName("thu");
         dayThu_in.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayThu_in);
+        days.add(dayThu_in);
 
         Day dayThu_out = new Day();
         dayThu_out.setTime(importShedule.getThu_out());
         dayThu_out.setDirection("out");
         dayThu_out.setName("thu");
         dayThu_out.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayThu_out);
+        days.add(dayThu_out);
 
         // пт
         Day dayFri_in = new Day();
@@ -159,14 +161,14 @@ public class SheduleServiceImpl extends AbstractService<Shedule, SheduleReposito
         dayFri_in.setDirection("in");
         dayFri_in.setName("fri");
         dayFri_in.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayFri_in);
+        days.add(dayFri_in);
 
         Day dayFri_out = new Day();
         dayFri_out.setTime(importShedule.getFri_out());
         dayFri_out.setDirection("out");
         dayFri_out.setName("fri");
         dayFri_out.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(dayFri_out);
+        days.add(dayFri_out);
 
         // сб
         Day daySat_in = new Day();
@@ -174,14 +176,14 @@ public class SheduleServiceImpl extends AbstractService<Shedule, SheduleReposito
         daySat_in.setDirection("in");
         daySat_in.setName("sat");
         daySat_in.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(daySat_in);
+        days.add(daySat_in);
 
         Day daySat_out = new Day();
         daySat_out.setTime(importShedule.getSat_out());
         daySat_out.setDirection("out");
         daySat_out.setName("sat");
         daySat_out.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(daySat_out);
+        days.add(daySat_out);
 
         // вс
         Day daySun_in = new Day();
@@ -189,15 +191,16 @@ public class SheduleServiceImpl extends AbstractService<Shedule, SheduleReposito
         daySun_in.setDirection("in");
         daySun_in.setName("sun");
         daySun_in.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(daySun_in);
+        days.add(daySun_in);
 
         Day daySun_out = new Day();
         daySun_out.setTime(importShedule.getSun_out());
         daySun_out.setDirection("out");
         daySun_out.setName("sun");
         daySun_out.setSheduleid(sheduleNew.getSheduleid());
-        dayService.save(daySun_out);
+        days.add(daySun_out);
 
+        dayService.saveAll(days);
         return shedule;
     }
 }

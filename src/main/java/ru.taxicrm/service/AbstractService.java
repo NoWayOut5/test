@@ -25,6 +25,10 @@ public abstract class AbstractService<E, R extends JpaRepository<E, Long>> {
         return repo.save(entity);
     }
 
+    public List<E> saveAll(List<E> entity) {
+        return repo.saveAll(entity);
+    }
+
     public Optional<E> findById(Long id) {
         Optional<E> obj = repo.findById(id);
         if (!obj.isPresent()) {
