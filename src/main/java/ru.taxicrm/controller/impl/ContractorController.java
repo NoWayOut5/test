@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("contractor")
 @Api(tags = {"Контрагенты"})
-@CrossOrigin
 public class ContractorController extends AbstractController<Contractor, ContractorRepository, ContractorServiceImpl> {
 
     @Autowired

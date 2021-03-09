@@ -13,7 +13,6 @@ import ru.taxicrm.service.impl.DayServiceImpl;
 @RestController
 @RequestMapping("day")
 @Api(tags = {"Список дней"})
-@CrossOrigin
 public class DayController extends AbstractController<Day, DayRepository, DayServiceImpl> {
 
     @Autowired

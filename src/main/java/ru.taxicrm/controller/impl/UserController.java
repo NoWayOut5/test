@@ -13,7 +13,6 @@ import ru.taxicrm.service.impl.UserServiceImpl;
 @RestController
 @RequestMapping("user")
 @Api(tags = {"Пользователи"})
-@CrossOrigin
 public class UserController extends AbstractController<User, UserRepository, UserServiceImpl> {
 
     @Autowired

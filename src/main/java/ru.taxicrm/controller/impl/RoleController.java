@@ -13,7 +13,6 @@ import ru.taxicrm.service.impl.RoleServiceImpl;
 @RestController
 @RequestMapping("role")
 @Api(tags = {"Роли"})
-@CrossOrigin
 public class RoleController extends AbstractController<Role, RoleRepository, RoleServiceImpl> {
 
     @Autowired

@@ -15,7 +15,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("shedule")
 @Api(tags = {"Расписание"})
-@CrossOrigin
 public class SheduleController extends AbstractController<Shedule, SheduleRepository, SheduleServiceImpl> {
 
     @Autowired

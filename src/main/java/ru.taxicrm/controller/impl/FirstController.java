@@ -10,7 +10,6 @@ import java.util.Map;
 
 @RestController
 @ApiIgnore
-@CrossOrigin
 public class FirstController {
 
     @GetMapping(value = "/test")

@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("city")
 @Api(tags = {"Города"})
-@CrossOrigin
 public class CityController extends AbstractController<City, CityRepository, CityServiceImpl> {
 
     @Autowired
