@@ -233,3 +233,63 @@ databaseChangeLog:
                   name: customer
                   type: varchar(255)
             tableName: shedule
+
+  - changeSet:
+      id:  9
+      author:  kv
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: sysname
+                  value: admin
+              - column:
+                  name: name
+                  value: роль администратор
+            schemaName:  public
+            tableName:  roles
+
+  - changeSet:
+      id:  10
+      author:  kv
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: sysname
+                  value: workwithcalls
+              - column:
+                  name: name
+                  value: роль работа со звонками
+            schemaName:  public
+            tableName:  roles
+
+  - changeSet:
+      id:  11
+      author:  kv
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: sysname
+                  value: scheduleadmin
+              - column:
+                  name: name
+                  value: роль администратор расписания
+            schemaName:  public
+            tableName:  roles
+
+  - changeSet:
+      id:  12
+      author:  kv
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: sysname
+                  value: viewreports
+              - column:
+                  name: name
+                  value: роль просмотр отчетов
+            schemaName:  public
+            tableName:  roles
